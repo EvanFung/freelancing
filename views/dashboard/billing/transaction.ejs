@@ -1,0 +1,66 @@
+<html>
+   <head>
+      <% include ../../partials/head %>
+      <title>Transaction | ECJob</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" href="../../stylesheet/form.css">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
+      <link rel="stylesheet" type="text/css" href="../../stylesheet/dashboard.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+      </link>
+   </head>
+   <body>
+      <header>
+         <% include ../../partials/header %>
+      </header>
+      <main>
+        <div class="container" style="margin-top: 150px;">
+            <div class="row row-eq-height">
+               <!--include navigation-->
+               <% include ../partials/navigation %>
+               <!--Start of Main Content -->
+               <div class="col-xs-9">
+                  <h3 class="sub-header">Transaction History</h3>
+                  <small>You can enquire the transaction history here.</small>
+                  <hr>
+                  <table class="table table-bordered">
+                     <thead>
+                        <th>Transaction ID</th>
+                        <th>Order Date</th>
+                        <th>Amount</th>
+                        <th>Gateway</th>
+                        <th>Status</th>
+                     </thead>
+                     <tbody>
+                        <% transactions.forEach(function(transaction){%>
+                           <tr>
+                              <td><%= transaction.id %></td>
+                              <script>
+                                 var momentDate = moment("<%=transaction.orderTime%>")
+                              </script>
+                              <td><script> document.write(momentDate.format("YYYY-MM-DD hh:mm:ss A")); </script></td>
+                              <td>$<%= transaction.amount %></td>
+                              <td><%= transaction.type %></td>
+                              <td><%= transaction.status %></td>
+                           </tr>
+                        <% });%>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+        </div>
+      </main>
+      <footer>
+         <% include ../../partials/footer %>
+      </footer>
+      <script>
+         $(".selection").removeClass("selection-active");
+         $(".selection:eq(1)").addClass("selection-active");
+         $(".selection:eq(4)").addClass("selection-active");
+         
+         $(".billing-list").show();
+      </script>
+      <script src="../../js/dashboard.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.min.js"></script>
+   </body>
+</html>

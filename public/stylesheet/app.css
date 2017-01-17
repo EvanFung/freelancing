@@ -1,0 +1,106 @@
+body{
+	font-family: Raleway;
+	margin-bottom: 150px;
+	background: #fcfcfc;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+/* Navbar Title */
+.title{
+	letter-spacing: 5px;
+	font-size: 30px;
+}
+
+/* Navbar Start*/
+.navbar{
+	-webkit-transition: all 0.6s ease-out;
+	-moz-transition: all 0.6s ease-out;
+	-o-transition: all 0.6s ease-out;
+	-ms-transition: all 0.6s ease-out;
+	transition: all 0.6s ease-out;
+	height: 80px;
+	padding-top: 17px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.navbar.scrolled {
+	background: rgba(255, 255, 255, 0.95);
+}
+
+.navbar-inverse .navbar-nav>.active>a:hover {
+	background: transparent;
+}
+
+.navbar-inverse .navbar-nav>.active>a {
+	background: transparent;
+}
+
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover{
+	color:black;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover{
+	color:black;
+}
+.navbar-inverse .navbar-nav {
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+.navbar .nav > li > a {
+    color:  black;
+}
+
+.navbar-inverse .navbar-brand{
+	color: black;
+	font-size: 25px;
+}
+
+.navbar-inner {
+	background: white;
+	border-color: #e6e6e6;
+}
+
+.navbar-fixed-top .navbar-inner {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+	background-color: black;
+}
+
+@media only screen and (max-width: 766px) {
+	.collapsing, .in {background-color: white;}
+	.collapsing ul li a, .in ul li a {color: black!important;}
+	.collapsing ul li a:hover, .in ul li a:hover {color: rgb(157,155,159)!important;}
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: #d3d3d3;
+}
+/* Navbar End*/
+
+/* Footer Start */
+.footer {
+	position: absolute;
+	bottom: 0;
+  	width: 100%;
+	background: #2c3e50;
+	height: 100px;
+	text-align: center;
+	margin-top:50px;
+}
+
+.footer-copyright{
+	font-family: Lato;
+	color: #f3f3f3;
+	padding-top: 40px; 
+}
+/* Footer End */

@@ -1,0 +1,11 @@
+<div class="footer">
+	<p class="footer-copyright">@2016 - 2017 ECJOB Inc.</p>
+</div>
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script>
+  var socket = io.connect();
+  
+  socket.on('hello', function(data){
+        console.log(data.id);
+  });
+</script>

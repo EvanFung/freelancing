@@ -1,0 +1,127 @@
+<html>
+   <head>
+      <% include partials/head %>
+      <title>Sign Up | ECJob</title>
+      <link rel="stylesheet" type="text/css" href="stylesheet/form.css">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
+   </head>
+   <body>
+      <header>
+         <% include partials/header %>
+      </header>
+      <main>
+         <div class="container" style="margin-top: 150px;">
+            <div class="col-md-8">
+               <h2 style="margin-bottom:50px;">Sign Up</h2>
+               <% if (error && error.length > 0){%>
+               <div class="alert alert-danger">
+                  <strong>Error!</strong> <%=error%>
+               </div>
+               <% } %>
+               <form class="form-horizontal" action="/signup" method="POST" id="signup-form">
+                  <div class="form-group has-feedback">
+                     <div class="col-md-4">
+                        <label class="control-label" for="first_name">User Type:</label>
+                        <p>Enter User Type</p>
+                     </div>
+                     <div class="col-sm-8">
+                        <label class="radio-inline"><input type="radio" id="type" value="freelancer" name="user[type]" checked="checked">Freelancer</label>
+                        <label class="radio-inline"><input type="radio" id="type" value="Job provider" name="user[type]">Job Provider</label>
+                     </div>
+                  </div>
+                  <!-- First Name -->
+                  <div class="form-group has-feedback">
+                     <div class="col-md-4">
+                        <label class="control-label" for="first_name">First Name:</label>
+                        <p>Enter First Name</p>
+                     </div>
+                     <div class="col-sm-8">
+                        <input type="text" class="form-control input-lg" name="user[firstName]" id="first_name" placeholder="Enter First Name">
+                     </div>
+                  </div>
+                  <hr align="left">
+                  <!-- Last Name -->
+                  <div class="form-group has-feedback">
+                     <div class="col-md-4">
+                        <label class="control-label" for="last_name">Last Name:</label>
+                        <p>Enter Last Name</p>
+                     </div>
+                     <div class="col-sm-8">
+                        <input type="text" class="form-control input-lg" name="user[lastName]" id="last_name" placeholder="Enter Last Name">
+                     </div>
+                  </div>
+                  <hr align="left">
+                  <!-- Country -->
+                  <div class="form-group has-feedback">
+                     <div class="col-md-4">
+                        <label class="control-label" for="country">Country:</label>
+                        <p>Select Country</p>
+                     </div>
+                     <div class="col-sm-8">
+                        <select class="form-control input-lg bfh-countries" name="user[country]" id="country" data-country="HK"></select>
+                     </div>
+                  </div>
+                  <hr align="left">
+                  <!-- Email -->
+                  <div class="form-group has-feedback">
+                     <div class="col-md-4">
+                        <label class="control-label" for="email">Email:</label>
+                        <p>Enter Email</p>
+                     </div>
+                     <div class="col-sm-8">
+                        <input type="text" class="form-control input-lg" id="email" name="user[email]" value="<%=email%>" placeholder="Enter email">
+                     </div>
+                  </div>
+                  <hr align="left">
+                  <!-- Username -->
+                  <div class="form-group has-feedback">
+                     <div class="col-md-4">
+                        <label class="control-label" for="username">Username:</label>
+                        <p>Enter Username</p>
+                     </div>
+                     <div class="col-sm-8">
+                        <input type="text" class="form-control input-lg" name="user[username]" id="username" placeholder="Enter username">
+                     </div>
+                  </div>
+                  <!-- Password -->
+                  <hr align="left">
+                  <div class="form-group has-feedback">
+                     <div class="col-md-4">
+                        <label class="control-label" for="password">Password:</label>
+                        <p>Enter Password</p>
+                     </div>
+                     <div class="col-sm-8">
+                        <input type="password" class="form-control input-lg" name="password" id="password" placeholder="Enter password">
+                     </div>
+                  </div>
+                  <hr align="left">
+                  <!-- Retype password -->
+                  <div class="form-group has-feedback">
+                     <div class="col-md-4">
+                        <label class="control-label" for="retype-password">Retype Password:</label>
+                        <p>Retype Password</p>
+                     </div>
+                     <div class="col-sm-8">
+                        <input type="password" class="form-control input-lg" id="retype-password" placeholder="Retype Password">
+                     </div>
+                  </div>
+                  <hr>
+                  <div class="form-group has-feedback">
+                     <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="btn btn-primary btn-lg">Create Account</button>
+                        <div style="padding-top: 10px;">
+                           <small>By creating an account, you agree to our Term of Use and Privacy policy</small>
+                        </div>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </main>
+      <footer>
+         <% include partials/footer %>
+      </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.min.js"></script>
+      <script src="js/signup.js"></script>
+   </body>
+</html>

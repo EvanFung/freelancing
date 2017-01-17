@@ -1,0 +1,30 @@
+<div class="col-xs-3">
+   <div class="navigation">
+      <a href="/dashboard"><h2 class="main-title"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</h2></a>
+      <ul>
+         <a href="/dashboard/my-info">
+            <li class="selection"><i class="fa fa-info" aria-hidden="true"></i>My Info</li>
+         </a>
+         <a href="#" id="billing-section">
+            <li class="selection"><i class="fa fa-credit-card" aria-hidden="true"></i>Billing Methods</li>
+         </a>
+         <div class="billing-list" style="display: none">
+            <li class="selection"><a href="/dashboard/billing/deposit">Deposit</a></li>
+            <li class="selection"><a href="/dashboard/billing/withdraw">Withdraw</a></li>
+            <li class="selection"><a href="/dashboard/billing/transaction">Transaction History</a></li>
+         </div>
+         <a href="#">
+            <li class="selection"><i class="fa fa-unlock-alt" aria-hidden="true"></i>Password & Security</li>
+         </a>
+         <a href="#">
+            <li class="selection"><i class="fa fa-comments" aria-hidden="true"></i>Notification Settings</li>
+         </a>
+      </ul>
+   </div>
+   <hr>
+   <div class="balance">
+      <h2 class="main-title"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>Balance</h2>
+      <p class="price">$<%=currentUser.balance %></p>
+      <small>(HKD)</small>
+   </div>
+</div>
