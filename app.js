@@ -15,9 +15,10 @@ var express = require('express'),
 
 var indexRoutes = require("./routes/index"),
 	dashboardRoutes = require("./routes/dashboard"),
+	adminRoutes = require("./routes/admin");
 	jobRoutes = require("./routes/job");
 
-mongoose.Promise = global.Promise;  
+mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/freelance_matching_system");
 
 app.set("view engine", "ejs");
@@ -44,12 +45,13 @@ app.use(function(req, res, next){
 	res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
 	res.locals.success = req.flash("success");
-	next(); 
+	next();
 });
 
 app.use(indexRoutes);
 app.use(dashboardRoutes);
 app.use(jobRoutes);
+app.use(adminRoutes);
 
 http.listen(app.get('port'), process.env.IP, function(){
 	console.log("Freelance Matching System is RUNNING");

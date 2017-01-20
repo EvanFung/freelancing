@@ -39,6 +39,15 @@ a:hover, a:active, a:link, a:visited {
     margin-left: 15px;
 }
 
+.maintainUser-list {
+  padding-left: 40px;
+}
+
+.maintainUser-list >li > a {
+  margin-left: :15px;
+}
+
+
 .price {
     font-family: Lato;
     font-weight: 300;
@@ -60,10 +69,14 @@ a:hover, a:active, a:link, a:visited {
 }
 
 hr {
-   width: 100%; 
+   width: 100%;
 }
 
 ul > a, .navigation > a, .billing-list > li > a{
+    color: black;
+}
+
+ul > a, .navigation > a, .maintainUser-list > li > a{
     color: black;
 }
 
