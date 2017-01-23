@@ -1,0 +1,120 @@
+.div-border {
+    border: 1px solid #ccc;
+    padding: 0;
+}
+
+.div-header {
+    border:none;
+    background: #204D74;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.main-title{
+    margin: 0;
+    margin-bottom:50px;
+}
+
+.div-content {
+    padding:0px 25px;
+}
+
+.balance{
+    margin-top: 20px;
+}
+
+.balance > h2 {
+    margin-bottom: 0px;
+}
+
+.billing-list{
+    padding-left: 40px;
+}
+
+a:hover, a:active, a:link, a:visited {
+    text-decoration: none;
+}
+
+.billing-list > li > a {
+    margin-left: 15px;
+}
+
+.maintain-list {
+  padding-left: 40px;
+}
+
+.maintain-list >li > a {
+  margin-left: :15px;
+}
+
+
+
+
+.price {
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 40px;
+    padding-left: 30px;
+    padding-top: 15px;
+    display: inline-block;
+}
+.selection {
+    border-left: 5px solid #fff;
+    padding: 7 0px;
+    margin: 7 0px;;
+    font-size: 15px;
+    padding-left: 5px;
+}
+
+.selection-active {
+    border-left: 5px solid #204D74;
+}
+
+hr {
+   width: 100%;
+}
+
+ul > a, .navigation > a, .billing-list > li > a{
+    color: black;
+}
+
+ul > a, .navigation > a, .maintain-list > li > a{
+    color: black;
+}
+
+.col-xs-9{
+    padding-left: 40px;
+}
+
+.col-xs-3{
+    border-right: 1px solid #eee;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+
+.selection > i, h2 > i {
+    min-width: 20px;
+    margin: 0px 10px;
+}
+
+.sub-header{
+    display:inline;
+    margin-right:10px;
+}
+
+h4 {
+    font-size: 17px;
+    margin: 0;
+    padding: 10px;
+}
+
+ol, ul{
+    list-style-type: none;
+    padding: 0;
+}
