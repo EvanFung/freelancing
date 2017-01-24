@@ -29,7 +29,7 @@ app.use(flash());
 app.use(methodOverride("_method"));
 
 //RESET DATABASE
-seedDB();
+// seedDB();
 //PASSPORT CONFIG
 
 app.set('port',process.env.PORT || 3000);

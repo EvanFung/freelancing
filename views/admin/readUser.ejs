@@ -62,7 +62,7 @@
         </div>
         <!-- end of widget title -->
         <div class="widget-content nopadding">
-          <table class="table table-bordered data-table">
+          <table class="table table-bordered data-table" id="user-table">
             <thead>
               <tr>
                 <th>User Name</th>
@@ -76,16 +76,18 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>evanfungv</td>
-                <td>evan</td>
-                <td>fung</td>
-                <td>evanfung@gmail.com</td>
-                <td>Hong Kong</td>
-                <td>$300,000</td>
-                <td><button type="button" id="editUser" class="btn btn-block btn-inverse">Edit</button></td>
-                <td><button type="button" class="btn btn-block btn-inverse" data-target="#delete" data-toggle="modal">Delete</button></td>
-              </tr>
+            <%  users.forEach(function(user){  %>
+                <tr data-userid="<%= user._id %>">
+                  <td><%= user.username %></td>
+                  <td><%= user.firstName %></td>
+                  <td><%= user.lastName %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.country %></td>
+                  <td><%= user.balance%></td>
+                  <td><button type="button" id="editUser" class="btn btn-block btn-inverse">Edit</button></td>
+                  <td><button type="button" class="btn btn-block btn-inverse btn-delete" data-target="#delete" data-toggle="modal">Delete</button></td>
+                </tr>
+            <%  }); %>
             </tbody>
           </table>
         </div>
@@ -116,37 +118,37 @@
               <div class="control-group">
                 <label class="control-label">User Name :</label>
                 <div class="controls">
-                  <input type="text" class="span11" placeholder="evanfungv" readonly="readonly"/>
+                  <input type="text" class="span11" placeholder="evanfungv" readonly="readonly" name="username"/>
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label">First Name :</label>
                 <div class="controls">
-                  <input type="text" class="span11" placeholder="First name" />
+                  <input type="text" class="span11" placeholder="First name" name="firstName"/>
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label">Last Name :</label>
                 <div class="controls">
-                  <input type="text" class="span11" placeholder="Last name" />
+                  <input type="text" class="span11" placeholder="Last name" name="lastName"/>
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label">Password input :</label>
                 <div class="controls">
-                  <input type="password"  class="span11" placeholder="Enter Password"  />
+                  <input type="password"  class="span11" placeholder="Enter Password"  name="password" id="pw"/>
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label">Confirm Password :</label>
                 <div class="controls">
-                  <input type="password"  class="span11" placeholder="Enter Password"  />
+                  <input type="password"  class="span11" placeholder="Enter Password"  name="password" id="confirmpw"/>
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label">Country:</label>
                 <div class="controls">
-                  <select >
+                  <select name="country">
                     <option>HK</option>
                     <option>USA</option>
                     <option>UK</option>
@@ -156,22 +158,21 @@
                   </select>
                 </div>
               </div>
-
               <div class="control-group">
                 <label class="control-label">Email:</label>
                 <div class="controls">
-                  <input type="text" class="span11" placeholder="abc@email.com"/>
+                  <input type="text" class="span11" placeholder="abc@email.com" name="email"/>
                   <span class="help-block">email field</span>
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label">Balance :</label>
                 <div class="controls">
-                  <input type="text" class="span11" placeholder="$300,000" readonly="readonly"/>
+                  <input type="text" class="span11" placeholder="$300,000" readonly="readonly" name="balance"/>
                 </div>
               </div>
               <div class="form-actions">
-                <button type="submit" class="btn btn-success">Save</button>
+                <button type="submit" class="btn btn-success btn-save">Save</button>
               </div>
             </form>
 
@@ -191,17 +192,20 @@
   <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel" style="color:red">DO YOU STILL WANT TO DELETE?</h4>
-        </div>
-        <div class="modal-body">
-          <h5><strong>THE DELETE OPERATION CAN'T RECOVER</strong></h5>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger">Delete</button>
-        </div>
+        <form action="/admin/readUser?_method=DELETE" method="post">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel" style="color:red">DO YOU STILL WANT TO DELETE?</h4>
+          </div>
+          <div class="modal-body">
+            <h5><strong>THE DELETE OPERATION CAN'T RECOVER</strong></h5>
+          </div>
+          <div class="modal-footer">
+            <input type="hidden" name="user_id" id="user_id">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
