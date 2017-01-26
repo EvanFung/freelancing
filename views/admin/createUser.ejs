@@ -2,6 +2,8 @@
 <head>
 <title>Freelance Matching System Admin</title>
 <%include partials/template/headlink.ejs %>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
+
 </head>
 <body>
 
@@ -37,7 +39,96 @@
 <!--End-breadcrumbs navigation-->
 
 <!-- write your container here -->
+<div class="edit-form">
+  <div class="row-fluid">
+    <div class="span1">
+    </div>
+    <div class="span10">
+      <div class="widget-box">
+        <div class="widget-title">
+          <span class="icon"><i class="icon-bookmark"></i></span>
+          <h5>Create an account for internal employee</h5>
+        </div>
+        <!-- end of title -->
+        <div class="widget-content nopadding">
+          <% if (error && error.length > 0){%>
+          <div class="alert alert-danger">
+             <strong>Error!</strong> <%=error%>
+          </div>
+          <% } else if (success && success.length > 0) {%>
+          <div class="alert alert-success">
+             <strong>Success!</strong> <%=success%>
+          </div>
+          <% }%>
+          <form action="/admin/createUser?_method=POST" method="post" class="form-horizontal" id="create-form">
+            <div class="control-group">
+                <label class="control-label">Type of employee :</label>
+                <div class="controls">
+                    <label>
+                      <input class="radio" type="radio" id="type" value="admin" name="user[type]">&nbsp&nbsp Admin
+                    </label>
+                    <label>
+                      <input class="radio" type="radio" id="type" value="normal_employee" name="user[type]" checked="checked">&nbsp &nbsp Normal employee
+                    </label>
+                </div>
+            </div>
+            <div class="control-group has-feedback">
+              <label class="control-label">User Name :</label>
+              <div class="controls">
+                <input type="text" class="span11" placeholder="username" name="user[username]" id="username" />
+              </div>
+            </div>
+            <div class="control-group has-feedback">
+              <label class="control-label">First Name :</label>
+              <div class="controls">
+                <input type="text" class="span11" placeholder="First name" name="user[firstName]" id="firstname" />
+              </div>
+            </div>
+            <div class="control-group has-feedback">
+              <label class="control-label">Last Name :</label>
+              <div class="controls">
+                <input type="text" class="span11" placeholder="Last name" name="user[lastName]" id="lastname"/>
+              </div>
+            </div>
+            <div class="control-group has-feedback">
+              <label class="control-label">Password input :</label>
+              <div class="controls">
+                <input type="password"  class="span11" placeholder="Enter Password"  id="password"/>
+              </div>
+            </div>
+            <div class="control-group has-feedback">
+              <label class="control-label">Confirm Password :</label>
+              <div class="controls">
+                <input type="password"  class="span11" placeholder="Enter Password"  name="user[password]" id="retype-password"/>
+              </div>
+            </div>
+            <div class="control-group has-feedback">
+              <label class="control-label">Country:</label>
+              <div class="controls">
+                <select class="form-control input-lg bfh-countries" name="user[country]" id="country" ></select>
+              </div>
+            </div>
+            <div class="control-group has-feedback">
+              <label class="control-label">Email:</label>
+              <div class="controls">
+                <input type="text" class="span11" placeholder="abc@email.com" name="user[email]" id="email" />
+              </div>
+            </div>
+            <div class="form-actions">
+              <input type="submit" class="btn btn-success btn-save" value="Save"/>
+            </div>
+          </form>
 
+        </div>
+        <!-- end of widget content -->
+      </div>
+    </div>
+    <!-- end of widget box -->
+    <div class="span1">
+    </div>
+  </div>
+  <!-- end fo the second row of content -->
+</div>
 <!-- end of your container here -->
 
 </div>
@@ -48,6 +139,15 @@
 <%include partials/template/footer.ejs %>
 </footer>
 <!--end-Footer-part-->
-<%include partials/template/footerscript.ejs %>
+<script src="/js/admin/jquery.min.js"></script>
+<script src="/js/admin/jquery.ui.custom.js"></script>
+<script src="/js/admin/bootstrap.min.js"></script>
+<script src="/js/admin/jquery.uniform.js"></script>
+<script src="/js/admin/select2.min.js"></script>
+<script src="/js/admin/jquery.dataTables.min.js"></script>
+<script src="/js/admin/matrix.js"></script>
+<script src="/js/admin/matrix.tables.js"></script>
+<script src="/js/createUser_admin.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.min.js"></script>
 </body>
 </html>

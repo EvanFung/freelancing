@@ -28,7 +28,7 @@ middlewareObj.chkUserAccessingPage = function (req, res, next){
 middlewareObj.chkUserExist = function(req, res, next){
 	var username = req.body.user['username'];
 	var email = req.body.user['email'];
-	
+
 	User.findOne({username: username}, function(err, user){
 		if (err){
 			console.log(err);

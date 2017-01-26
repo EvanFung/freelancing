@@ -10,7 +10,10 @@
 .table td {
  text-align: center;
 }
+
 </style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.min.css" rel="stylesheet" media="screen">
+
 </head>
 <body>
 
@@ -50,6 +53,15 @@
 
 
 <div class="content-fluid">
+  <% if (error && error.length > 0){%>
+    <div class="alert alert-error alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>
+      <h4 class="alert-heading">Error!</h4><%=error%>
+    </div>
+  <% } else if (success && success.length > 0) {%>
+  <div class="alert alert-success alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>
+    <h4 class="alert-heading">Success!</h4><%=success%>
+  </div>
+  <% }%>
   <div class="row-fluid">
     <div class="span1">
     </div>
@@ -84,7 +96,7 @@
                   <td><%= user.email %></td>
                   <td><%= user.country %></td>
                   <td><%= user.balance%></td>
-                  <td><button type="button" id="editUser" class="btn btn-block btn-inverse">Edit</button></td>
+                  <td><a href="/admin/updateUser/<%= user._id %>" class="btn btn-block btn-inverse" id="editUser">Edit</button></td>
                   <td><button type="button" class="btn btn-block btn-inverse btn-delete" data-target="#delete" data-toggle="modal">Delete</button></td>
                 </tr>
             <%  }); %>
@@ -100,92 +112,6 @@
     <!-- end of span 1 -->
   </div>
 
-  <!-- the second row of content start -->
-  <div class="edit-form" style="display:none">
-    <div class="row-fluid">
-      <div class="span1">
-      </div>
-      <div class="span10">
-        <div class="widget-box">
-          <div class="widget-title">
-            <span class="icon"><i class="icon-bookmark"></i></span>
-            <h5>Edit User Information</h5>
-          </div>
-          <!-- end of title -->
-          <div class="widget-content nopadding">
-
-            <form action="#" method="get" class="form-horizontal">
-              <div class="control-group">
-                <label class="control-label">User Name :</label>
-                <div class="controls">
-                  <input type="text" class="span11" placeholder="evanfungv" readonly="readonly" name="username"/>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">First Name :</label>
-                <div class="controls">
-                  <input type="text" class="span11" placeholder="First name" name="firstName"/>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Last Name :</label>
-                <div class="controls">
-                  <input type="text" class="span11" placeholder="Last name" name="lastName"/>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Password input :</label>
-                <div class="controls">
-                  <input type="password"  class="span11" placeholder="Enter Password"  name="password" id="pw"/>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Confirm Password :</label>
-                <div class="controls">
-                  <input type="password"  class="span11" placeholder="Enter Password"  name="password" id="confirmpw"/>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Country:</label>
-                <div class="controls">
-                  <select name="country">
-                    <option>HK</option>
-                    <option>USA</option>
-                    <option>UK</option>
-                    <option>SG</option>
-                    <option>JP</option>
-                    <option>CN</option>
-                  </select>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Email:</label>
-                <div class="controls">
-                  <input type="text" class="span11" placeholder="abc@email.com" name="email"/>
-                  <span class="help-block">email field</span>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Balance :</label>
-                <div class="controls">
-                  <input type="text" class="span11" placeholder="$300,000" readonly="readonly" name="balance"/>
-                </div>
-              </div>
-              <div class="form-actions">
-                <button type="submit" class="btn btn-success btn-save">Save</button>
-              </div>
-            </form>
-
-          </div>
-          <!-- end of widget content -->
-        </div>
-      </div>
-      <!-- end of widget box -->
-      <div class="span1">
-      </div>
-    </div>
-    <!-- end fo the second row of content -->
-  </div>
 
 
   <!-- Modal -->
@@ -224,6 +150,7 @@
 <footer>
 <%include partials/template/footer.ejs %>
 </footer>
+
 <!--end-Footer-part-->
 <script src="/js/admin/jquery.min.js"></script>
 <script src="/js/admin/jquery.ui.custom.js"></script>
@@ -234,6 +161,7 @@
 <script src="/js/admin/matrix.js"></script>
 <script src="/js/admin/matrix.tables.js"></script>
 <script src="/js/maintainUser.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.min.js"></script>
 
 </body>
 </html>
