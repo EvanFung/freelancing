@@ -41,6 +41,15 @@
 <!-- write your container here -->
 <div class="edit-form">
   <div class="row-fluid">
+    <% if (error && error.length > 0){%>
+      <div class="alert alert-error alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>
+        <h4 class="alert-heading">Error!</h4><%=error%>
+      </div>
+    <% } else if (success && success.length > 0) {%>
+    <div class="alert alert-success alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>
+      <h4 class="alert-heading">Success!</h4><%=success%>
+    </div>
+    <% }%>
     <div class="span1">
     </div>
     <div class="span10">
@@ -51,15 +60,6 @@
         </div>
         <!-- end of title -->
         <div class="widget-content nopadding">
-          <% if (error && error.length > 0){%>
-          <div class="alert alert-danger">
-             <strong>Error!</strong> <%=error%>
-          </div>
-          <% } else if (success && success.length > 0) {%>
-          <div class="alert alert-success">
-             <strong>Success!</strong> <%=success%>
-          </div>
-          <% }%>
           <form action="/admin/createUser?_method=POST" method="post" class="form-horizontal" id="create-form">
             <div class="control-group">
                 <label class="control-label">Type of employee :</label>

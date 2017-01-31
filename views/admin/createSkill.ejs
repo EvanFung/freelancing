@@ -43,7 +43,7 @@
                     <div id="content-header">
                         <div id="breadcrumb">
                             <a href="/admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
-                            <a href="/readSkill" title="Go to Read User" class="tip-bottom"><i class="icon-user"></i> Read Skill Test</a>
+                            <a href="/readSkill" title="Go to Read User" class="tip-bottom"><i class="icon-user"></i> Create Skill Test</a>
                         </div>
                     </div>
                     <!--End-breadcrumbs navigation-->
@@ -60,32 +60,30 @@
                                 <div class="widget-box">
                                     <div class="widget-title">
                                         <span class="icon"><i class="icon-bookmark"></i></span>
-                                        <h5>Read All Skill Information</h5>
+                                        <h5>Create a skill - Step 1</h5>
                                     </div>
                                     <!-- end of widget title -->
                                     <div class="widget-content nopadding">
-                                        <table class="table table-bordered data-table" align="center">
-                                            <thead>
-                                                <tr>
-                                                    <th>Question ID</th>
-                                                    <th>Name</th>
-                                                    <th>Type of the skill</th>
-                                                    <th>Number of questions</th>
-                                                    <th>Edit</th>
-                                                    <th>Delete</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>0000000000001</td>
-                                                    <td>Data structure & algorithem </td>
-                                                    <td>Java</td>
-                                                    <td>10</td>
-                                                    <td><a href="admin/editSkill" class="btn btn-block btn-inverse">Edit</a></td>
-                                                    <td><button type="button" class="btn btn-block btn-inverse" data-target="#delete" data-toggle="modal">Delete</button></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                      <form class="form-horizontal">
+                                        <div class="control-group">
+                                          <label class="control-label">Skill Type : </label>
+                                          <div class="controls">
+                                            <input type="text" name="skills[type]">
+                                          </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                          <label class="control-label">Name : </label>
+                                          <div class="controls">
+                                            <input type="text" name="skills[type]">
+                                          </div>
+                                        </div>
+
+                                        <div class="form-actions">
+                                          <input type="submit" class="btn btn-success btn-save" value="Add"/>
+                                        </div>
+
+                                      </form>
                                     </div>
                                 </div>
                                 <!-- end of widget box -->
@@ -95,29 +93,6 @@
                             </div>
                             <!-- end of span 1 -->
                         </div>
-
-
-                        <!-- Modal of delete-->
-                        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <form action="/admin/readSkill?method=DELETE" method="post">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="delete-modal-label" style="color:red">DO YOU STILL WANT TO DELETE?</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <h5><strong>THE DELETE OPERATION CAN'T RECOVER</strong></h5>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </div>
-                                  </form>
-                                </div>
-                            </div>
-                        </div>
-
 
                     </div>
                     <!-- end of content-fluid -->

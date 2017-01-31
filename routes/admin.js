@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var Skills = require('../models/skills');
+var Question = require('../models/question');
 var bodyParser = require('body-parser');
 
 router.get('/admin',function (req,res) {
@@ -33,8 +35,16 @@ router.delete('/admin/readUser',function(req,res) {
   });
 });
 
+//create a employee user and redirect to somewhere
 router.post('/admin/createUser',function(req,res) {
-  res.send(req.body.user);
+    User.create(req.body.user,function(err,newUser){
+      if(err) {
+        res.redirect("/admin");
+      } else {
+        req.flash("success", "The resgistration successful!");
+        res.redirect("/admin/createUser");
+      }
+    });
 });
 
 
@@ -70,8 +80,21 @@ router.get('/admin/deleteUser',function(req,res) {
   res.render('./admin/deleteUser');
 });
 
+//skill module
+
+//read all skills
 router.get('/admin/readSkill',function(req,res) {
   res.render('./admin/readSkill');
+});
+
+//to create a skill
+router.get('/admin/createSkill',function(req,res) {
+  res.render("./admin/createSkill");
+});
+
+
+router.delete('admin/readSkill/:id',function(req,res) {
+  res.send("this is delete page");
 });
 
 module.exports = router;

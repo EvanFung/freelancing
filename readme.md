@@ -11,11 +11,13 @@ Paypal Test Account
     }
 }
 -------------------------------------------------------
-
+Local Macbook
+1. mongod --dbpath ~/data/db
+2. cd redis file /src and type ./redis-server
 
 
 Before start the server, please follow the instructions below:
-1. Start MongoDB(root path): 
+1. Start MongoDB(root path):
    ./mongod
    If there was occured a unclean shutdown error while starting mongodb
    Run "mongod --repair --dbpath data" ,then run "./mongod"
@@ -25,5 +27,5 @@ Before start the server, please follow the instructions below:
 2. Start Redis Server(Session Server)
    Run "sudo service redis-server start"
 
-3. Run application(workspace): 
+3. Run application(workspace):
    node app.js
